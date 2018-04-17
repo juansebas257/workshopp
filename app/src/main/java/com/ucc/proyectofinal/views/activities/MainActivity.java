@@ -21,16 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        registro.setOnClickListener( new View.OnClickListener(){
-            @Override
-            public  void onClick(View view){
-                VerificarLogin(Login.getTex()toString().toLowerCase().contraseña.getTex().toString().toLowercase));
-            }
+
                                      }
-        )
-
-        ;
 
 
-    }
+
+
 }
