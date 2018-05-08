@@ -10,21 +10,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="REGISTRO"
-        android:textSize="25sp"
-        android:textColor="@color/colorWhite"
-        android:textStyle="bold"
         android:layout_gravity="center"
+        android:text="REGISTRO"
+        android:textColor="@color/colorWhite"
+        android:textSize="25sp"
+        android:textStyle="bold"
 
-    />
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Usuario"
-        android:textColorHint="@color/colorWhite"
+        android:hint="@E-mail"
         android:textColor="@color/colorWhite"
-        />
+        android:textColorHint="@color/colorWhite" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +47,12 @@
         android:textColorHint="@color/colorWhite"
         android:textColor="@color/colorWhite"
         />
+
+    <Button
+        android:id="@+id/btregistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar" />
 
 
 </LinearLayout>
