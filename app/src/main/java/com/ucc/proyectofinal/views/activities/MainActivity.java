@@ -11,8 +11,9 @@ import com.ucc.proyectofinal.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button registro;
-
-
+    private Button ingresar ;
+    private Button creamateria;
+    private Button creacontenido;
 
 
 
@@ -23,17 +24,34 @@ public class MainActivity extends AppCompatActivity {
 
         registro = (Button) findViewById(R.id.registrar);
 
+
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent registro = new Intent(MainActivity.this, ActivityRegistro.class );
+                Intent registro = new Intent(MainActivity.this, ActivityRegistro.class);
                 startActivity(registro);
             }
         });
 
+       ingresar = (Button) findViewById(R.id.ingresar);
 
-                                     }
+        ingresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent ingresar= new Intent( MainActivity.this, ActivityMenu.class );
+                startActivity(ingresar);
+
+            }
+
+
+        });
+
+
+
+
+    }
 
 
 

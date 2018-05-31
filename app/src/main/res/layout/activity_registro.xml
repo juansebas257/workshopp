@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+
     android:padding="10sp">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="REGISTRO"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorNegro"
         android:textSize="25sp"
         android:textStyle="bold"
 
@@ -21,15 +21,15 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@E-mail"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
+        android:hint="Email"
+        android:textColor="@color/colorNegro"
+        android:textColorHint="@color/colorNegro" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Contraseña"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorNegro"
+        android:textColor="@color/colorNegro"
 
         />
 
@@ -37,15 +37,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorNegro"
+        android:textColor="@color/colorNegro"
         />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Apellidos"
-        android:textColorHint="@color/colorWhite"
-        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorNegro"
+        android:textColor="@color/colorNegro"
         />
 
     <Button
