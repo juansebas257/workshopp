@@ -16,6 +16,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".views.activities.MainActivity"></activity>
         <activity android:name=".views.activities.ActivityRegistro"></activity>
+        <activity android:name=".views.activities.ActivityMenu"></activity>
+        <activity android:name=".views.activities.ActivityMateria"></activity>
+        <activity android:name=".views.activities.ActivityCreaContenido"></activity>
+        <activity android:name=".views.activities.ActivityCreaMateria"></activity>
+
+
+
 
         <activity
             android:name=".SplashScreen"
@@ -27,15 +34,10 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".views.activities.ActivityCreaMateria"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"></activity>
-        <activity android:name=".views.activities.ActivityCreaContenido"
-           android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
 
-       </activity>
-        <activity android:name=".views.activities.ActivityMenu"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
+
+
 
 
     </application>
