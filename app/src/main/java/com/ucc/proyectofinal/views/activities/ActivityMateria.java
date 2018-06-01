@@ -2,6 +2,7 @@ package com.ucc.proyectofinal.views.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import com.ucc.proyectofinal.R;
 
 public class ActivityMateria extends AppCompatActivity {
     private Button btcontenido;
-    private Button btmateria;
+    private FloatingActionButton btmateria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,14 @@ public class ActivityMateria extends AppCompatActivity {
             }
         });
 
-
+        btmateria =(FloatingActionButton) findViewById(R.id.btcreamateria);
+        btmateria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent btmateria= new Intent( ActivityMateria.this, ActivityCreaMateria.class);
+                startActivity(btmateria);
+            }
+        });
 
 
 
