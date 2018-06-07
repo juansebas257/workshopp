@@ -20,6 +20,11 @@ public class ActivityMateria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        String materia1="Fisica";
+        String materia2="POO";
+        String materia3="Quimica";
+
         setContentView(R.layout.activity_materia);
 
         btcontenido =(Button) findViewById(R.id.btmateria1);
