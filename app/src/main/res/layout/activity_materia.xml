@@ -28,7 +28,7 @@
             tools:text="MATERIA" />
 
         <Button
-            android:id="@+id/btcreacontenido"
+            android:id="@+id/btmateria1"
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_alignParentStart="true"
@@ -36,6 +36,7 @@
             android:layout_marginStart="31dp"
             android:layout_marginTop="39dp"
             android:background="@drawable/folder"
+            android:text="Materia 1"
             tools:layout_editor_absoluteX="35dp"
             tools:layout_editor_absoluteY="108dp" />
 
@@ -43,19 +44,21 @@
             android:id="@+id/btmateria2"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:layout_alignTop="@+id/btcreacontenido"
+            android:layout_alignTop="@+id/btmateria1"
             android:layout_marginStart="62dp"
-            android:layout_toEndOf="@+id/btcreacontenido"
-            android:background="@drawable/folder" />
+            android:layout_toEndOf="@+id/btmateria1"
+            android:background="@drawable/folder"
+            android:text="Materia 2" />
 
         <Button
             android:id="@+id/btmateria3"
             android:layout_width="100dp"
             android:layout_height="80dp"
-            android:layout_alignStart="@+id/btcreacontenido"
-            android:layout_below="@+id/btcreacontenido"
+            android:layout_alignStart="@+id/btmateria1"
+            android:layout_below="@+id/btmateria1"
             android:layout_marginTop="22dp"
-            android:background="@drawable/folder" />
+            android:background="@drawable/folder"
+            android:text="Materia 3" />
 
         <Button
             android:id="@+id/btmateria4"
@@ -63,7 +66,8 @@
             android:layout_height="80dp"
             android:layout_above="@+id/btmateria5"
             android:layout_alignStart="@+id/btmateria2"
-            android:background="@drawable/folder" />
+            android:background="@drawable/folder"
+            android:text="Materia 4" />
 
         <Button
             android:id="@+id/btmateria5"
@@ -72,7 +76,8 @@
             android:layout_alignStart="@+id/btmateria3"
             android:layout_below="@+id/btmateria3"
             android:layout_marginTop="25dp"
-            android:background="@drawable/folder" />
+            android:background="@drawable/folder"
+            android:text="Materia 5" />
 
         <Button
             android:id="@+id/btmateria6"
@@ -81,7 +86,8 @@
             android:layout_alignStart="@+id/btmateria4"
             android:layout_alignTop="@+id/btmateria5"
             android:layout_marginStart="11dp"
-            android:background="@drawable/folder" />
+            android:background="@drawable/folder"
+            android:text="Materia 6" />
 
     </RelativeLayout>
 

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button creamateria;
     private Button creacontenido;
 
-    Spinner opciones;
+
 
 
 
@@ -34,10 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        opciones = (Spinner) findViewById(R.id.spinnerCreaMateria);
-        ArrayAdapter<CharSequence>  adapter = createFromResource
-                (this, R.array.opciones, android.R.layout.simple_spinner_item);
-        opciones.setAdapter(adapter);
+
 
 
         registro = (Button) findViewById(R.id.registrar);
@@ -63,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
         });
+
 
 
 

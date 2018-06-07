@@ -22,7 +22,7 @@ public class ActivityMateria extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materia);
 
-        btcontenido =(Button) findViewById(R.id.btcreacontenido);
+        btcontenido =(Button) findViewById(R.id.btmateria1);
         btcontenido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opciones">
+
+    <item>Agronomia, Veterinaria y afines</item>
+    <item>Bellas Artes</item>
+    <item>Ciencias de la Educacion</item>
+    <item>Ciencias de la Salud</item>
+    <item>Ciencias Sociales y Humanas</item>
+    <item>Economia, Admin, Contaduria y Afines</item>
+    <item>Ingenieria, Arquitectura, Urbanismo y Afines</item>
+    <item>Matematica y Ciencias naturales</item>
+
+</string-array>
+
+     <string-array name="tipo">
+
+    <item>Taller</item>
+    <item>Parcial</item>
+
+</string-array>
+
+
+    
+</resources>
