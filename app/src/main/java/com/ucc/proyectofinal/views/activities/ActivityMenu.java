@@ -1,12 +1,17 @@
 package com.ucc.proyectofinal.views.activities;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.ucc.proyectofinal.R;
+import com.ucc.proyectofinal.utilities.SQLite;
+import com.ucc.proyectofinal.utilities.Sync;
+
+import java.io.File;
 
 /**
  * Created by LENOVO USER on 30/05/2018.
@@ -120,8 +125,26 @@ public class ActivityMenu extends AppCompatActivity {
         });
 
 
+        sincronizar();
 
 
+    }
 
+    private void sincronizar() {
+        //conectando con sqlite
+        final SQLiteDatabase db;
+        final SQLite conn=new SQLite(this,"workshopp",null,1);
+        db=conn.getWritableDatabase();
+
+        //creando la base de datos
+        File dbFile = this.getDatabasePath("workshopp");
+        System.out.println("existe la base:"+dbFile.exists());
+        //conn.onCreate(db);
+        if(!dbFile.exists()){
+            conn.onCreate(db);
+        }
+
+        //sincronizar la base de datos en la nube
+        Sync.syncAll(conn,db);
     }
 }

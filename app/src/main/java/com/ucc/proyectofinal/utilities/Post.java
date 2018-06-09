@@ -1,10 +1,17 @@
 package com.ucc.proyectofinal.utilities;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -12,11 +19,11 @@ import java.net.URLEncoder;
 // Async Task to access the web
 public class Post extends AsyncTask<String, Void, String> {
 
+    public static String server="http://workshopp.gearsis.com/api";
     public StringBuilder rs;
 
     @Override
     protected String doInBackground(String... params) {
-        System.out.println("POST recibido");
         //RECIBIENDO PARAMETROS...
         String param_url=params[0];
         String param_type=params[1];
@@ -25,31 +32,42 @@ public class Post extends AsyncTask<String, Void, String> {
 
         rs=new StringBuilder();
         try {
-            String type = URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode(param_type, "UTF-8");
-            String email = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(param_email, "UTF-8");
-            String password = URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(param_password, "UTF-8");
-
             URL url = new URL(param_url);
-            System.out.println(param_url);
-            URLConnection conn = url.openConnection();
-            conn.setConnectTimeout(60000);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            conn.setRequestProperty("Accept","application/json");
             conn.setDoOutput(true);
-            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write(type);
-            wr.write(email);
-            wr.write(password);
-            wr.flush();
+            conn.setDoInput(true);
 
-            System.out.println("POST");
+            JSONObject jsonParam = new JSONObject();
+            //jsonParam.put("timestamp", 1488873360);
+            jsonParam.put("email",param_email );
+            jsonParam.put("password", param_password);
+            jsonParam.put("type", param_type);
 
-            BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+
+            Log.i("JSON", jsonParam.toString());
+            DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+            //os.writeBytes(URLEncoder.encode(jsonParam.toString(), "UTF-8"));
+            os.writeBytes(jsonParam.toString());
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
             String line;
-            while ((line = rd.readLine()) != null) {
-                rs.append(line);
-                System.out.println(line);
+            while ((line = reader.readLine()) != null) {
+                return line;
             }
-            wr.close();
-            rd.close();
+            os.flush();
+            os.close();
+
+            Log.i("STATUS", String.valueOf(conn.getResponseCode()));
+            Log.i("MSG" , conn.getResponseMessage());
+
+            conn.disconnect();
         }catch(Exception ex){
             ex.printStackTrace();
             rs=null;

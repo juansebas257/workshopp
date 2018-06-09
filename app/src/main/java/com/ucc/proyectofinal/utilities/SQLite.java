@@ -5,6 +5,11 @@ import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SQLite extends SQLiteOpenHelper{
 
@@ -14,15 +19,13 @@ public class SQLite extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //db.execSQL("drop table if exists users");
-        //db.execSQL("drop table if exists courses");
-        //db.execSQL("drop table if exists documents");
+        db.execSQL("drop table if exists users");
+        db.execSQL("drop table if exists courses");
+        db.execSQL("drop table if exists documents");
 
-        db.execSQL("CREATE TABLE users (id integer,name text, email text,password text)");
-        db.execSQL("insert into users values(1,'Sebastián Jiménez','juansebas257@gmail.com','Passw0rdStian')");
-        db.execSQL("insert into users values(2,'Nayibi Silva','nayiby.silva@gmail.com','1204')");
-        db.execSQL("CREATE TABLE courses (id integer, area integer,name text)");
-        db.execSQL("CREATE TABLE documents (id integer, course integer,user integer,description text,calification integer,type integer,file text,teacher text)");
+        db.execSQL("CREATE TABLE users (id integer,idserver integer unique,name text, email text,password text,sincronizado integer default 0)");
+        db.execSQL("CREATE TABLE courses (id integer,idserver integer unique, area integer,name text,sincronizado integer default 0)");
+        db.execSQL("CREATE TABLE documents (id integer,idserver integer unique, course integer,user integer,description text,calification text,type integer,file text,teacher text,sincronizado integer default 0)");
     }
 
     @Override
