@@ -19,33 +19,40 @@
         />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:textColor="@color/colorNegro"
-        android:textColorHint="@color/colorNegro" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:textColorHint="@color/colorNegro"
-        android:textColor="@color/colorNegro"
-
-        />
-
-    <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre"
         android:textColorHint="@color/colorNegro"
         android:textColor="@color/colorNegro"
         />
+
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Apellidos"
+        android:hint="Email"
+        android:textColor="@color/colorNegro"
+        android:textColorHint="@color/colorNegro" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
         android:textColorHint="@color/colorNegro"
         android:textColor="@color/colorNegro"
+
+        />
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirmación"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorNegro"
+        android:textColor="@color/colorNegro"
+
         />
 
     <Button

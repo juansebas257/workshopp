@@ -50,7 +50,7 @@ public class ActivityMateria extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
             {
                 String selectedmovie=courses.get(position);
-                Toast.makeText(getApplicationContext(), "Movie Selected : "+selectedmovie,   Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Materia seleccionada : "+selectedmovie,   Toast.LENGTH_LONG).show();
             }
         });
 
@@ -67,6 +67,7 @@ public class ActivityMateria extends AppCompatActivity {
 
     }
     public void getCourses() {
+        courses.clear();
         final SQLiteDatabase db;
         final SQLite conn=new SQLite(this,"workshopp",null,1);
         db=conn.getWritableDatabase();
