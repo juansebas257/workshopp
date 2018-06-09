@@ -139,7 +139,7 @@ public class ActivityMenu extends AppCompatActivity {
         //creando la base de datos
         File dbFile = this.getDatabasePath("workshopp");
         System.out.println("existe la base:"+dbFile.exists());
-        //conn.onCreate(db);
+        conn.onCreate(db);
         if(!dbFile.exists()){
             conn.onCreate(db);
         }

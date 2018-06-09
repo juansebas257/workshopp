@@ -2,6 +2,7 @@ package com.ucc.proyectofinal.views.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -28,6 +29,7 @@ public class ActivityCreaMateria extends AppCompatActivity {
                 (this, R.array.opciones, android.R.layout.simple_spinner_item);
         opciones.setAdapter(adapter);
     }
+
 
 
 
