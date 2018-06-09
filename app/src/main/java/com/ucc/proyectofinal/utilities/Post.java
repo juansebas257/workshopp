@@ -46,6 +46,10 @@ public class Post extends AsyncTask<String, Void, String> {
             jsonParam.put("password", param_password);
             jsonParam.put("type", param_type);
 
+            if(param_type=="create_user"){
+                jsonParam.put("name",params[4]);
+            }
+
 
 
             Log.i("JSON", jsonParam.toString());
