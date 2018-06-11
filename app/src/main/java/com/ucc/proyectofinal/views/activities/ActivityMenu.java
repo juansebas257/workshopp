@@ -38,6 +38,7 @@ public class ActivityMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent bt1agro= new Intent( ActivityMenu.this, ActivityMateria.class);
+                bt1agro.putExtra("area","1");
                 startActivity(bt1agro);
             }
         });
@@ -52,6 +53,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent bt2bellas= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt2bellas.putExtra("area","2");
                 startActivity(bt2bellas);
             }
         });
@@ -63,6 +65,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent  bt3cienciaseduca= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt3cienciaseduca.putExtra("area","3");
                 startActivity(bt3cienciaseduca);
             }
         });
@@ -75,6 +78,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent  bt4cienciasalud= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt4cienciasalud.putExtra("area","4");
                 startActivity(bt4cienciasalud);
             }
         });
@@ -86,6 +90,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent  bt5cienciassocial= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt5cienciassocial.putExtra("area","5");
                 startActivity(bt5cienciassocial);
             }
         });
@@ -98,6 +103,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent bt6ecoadmincnt= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt6ecoadmincnt.putExtra("area","6");
                 startActivity(bt6ecoadmincnt);
             }
         });
@@ -109,6 +115,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent bt7ingenier= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt7ingenier.putExtra("area","7");
                 startActivity(bt7ingenier);
             }
         });
@@ -120,6 +127,7 @@ public class ActivityMenu extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent bt8mate= new Intent( ActivityMenu.this, ActivityMateria.class );
+                bt8mate.putExtra("area","8");
                 startActivity(bt8mate);
             }
         });
@@ -130,6 +138,12 @@ public class ActivityMenu extends AppCompatActivity {
 
     }
 
+    /*@Override
+    protected void onResume() {
+        super.onResume();
+        sincronizar();
+    }*/
+
     private void sincronizar() {
         //conectando con sqlite
         final SQLiteDatabase db;
@@ -138,7 +152,6 @@ public class ActivityMenu extends AppCompatActivity {
 
         //creando la base de datos
         File dbFile = this.getDatabasePath("workshopp");
-        System.out.println("existe la base:"+dbFile.exists());
         conn.onCreate(db);
         if(!dbFile.exists()){
             conn.onCreate(db);

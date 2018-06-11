@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
         Post login = new Post(){
             protected void onPostExecute(String result) {
-                System.out.println(result);
                 try {
                     JSONObject array=new JSONObject(result);
                     if(array.getBoolean("error")){
@@ -99,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
             Intent ingresar = new Intent(MainActivity.this, ActivityMenu.class);
             startActivity(ingresar);
         }else{
-            System.out.println("USUARIO O CONTRASEÑA INVALIOS");
             Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
         }
     }

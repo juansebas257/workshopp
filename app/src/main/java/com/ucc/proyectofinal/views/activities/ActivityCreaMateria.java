@@ -54,7 +54,8 @@ public class ActivityCreaMateria extends AppCompatActivity {
         final SQLiteDatabase db;
         final SQLite conn=new SQLite(this,"workshopp",null,1);
         db=conn.getWritableDatabase();
-        conn.statement("insert into courses (idserver,area,name) values (null,"+area+",'"+descripcion+"')",db);
+        System.out.println("insert into courses (area,name) values ("+area+",'"+descripcion+"')");
+        conn.statement("insert into courses (area,name) values ("+area+",'"+descripcion+"')",db);
         finish();
     }
 

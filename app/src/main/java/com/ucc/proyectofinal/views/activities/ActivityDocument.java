@@ -22,29 +22,27 @@ import java.util.ArrayList;
  * Created by LENOVO USER on 30/05/2018.
  */
 
-public class ActivityMateria extends AppCompatActivity {
+public class ActivityDocument extends AppCompatActivity {
     private Button btcontenido;
     private FloatingActionButton btmateria;
-    ArrayList<String> courses;
-    String area;
+    ArrayList<String> documentos;
+    String materia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_materia);
+        setContentView(R.layout.activity_documento);
 
         Intent myIntent = getIntent(); // gets the previously created intent
-        area = myIntent.getStringExtra("area");
+        materia = myIntent.getStringExtra("materia");
 
-// Get the reference of movies
         ListView moviesList=(ListView)findViewById(R.id.myList);
-
-        courses = new ArrayList<String>();
-        getCourses();
+        documentos = new ArrayList<String>();
+        getDocumentos();
 
         // Create The Adapter with passing ArrayList as 3rd parameter
         ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, courses);
+                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, documentos);
         // Set The Adapter
         moviesList.setAdapter(arrayAdapter);
 
@@ -53,10 +51,9 @@ public class ActivityMateria extends AppCompatActivity {
         {
             // argument position gives the index of item which is clicked
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3) {
-                String selected=courses.get(position);
-                Intent btmateria= new Intent( ActivityMateria.this, ActivityDocument.class);
-                btmateria.putExtra("materia",selected);
-                startActivity(btmateria);
+
+                String selected= documentos.get(position);
+                Toast.makeText(getApplicationContext(), "DOcumento seleccionado : "+selected,   Toast.LENGTH_LONG).show();
             }
         });
 
@@ -66,21 +63,21 @@ public class ActivityMateria extends AppCompatActivity {
         btmateria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent btmateria= new Intent( ActivityMateria.this, ActivityCreaMateria.class);
+                Intent btmateria= new Intent( ActivityDocument.this, ActivityCreaContenido.class);
                 startActivity(btmateria);
             }
         });
 
     }
-    public void getCourses() {
-        courses.clear();
+    public void getDocumentos() {
+        documentos.clear();
         final SQLiteDatabase db;
         final SQLite conn=new SQLite(this,"workshopp",null,1);
         db=conn.getWritableDatabase();
-        Cursor cursos=conn.getResultSet("select id,name from courses where area="+area,db);
+        Cursor cursos=conn.getResultSet("select id,name from documentos;",db);
 
         for(cursos.moveToFirst(); !cursos.isAfterLast(); cursos.moveToNext()){
-            courses.add(cursos.getString(1));
+            documentos.add(cursos.getString(1));
         }
     }
 }
