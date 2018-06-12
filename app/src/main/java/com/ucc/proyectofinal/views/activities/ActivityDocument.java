@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -26,7 +27,8 @@ public class ActivityDocument extends AppCompatActivity {
     private Button btcontenido;
     private FloatingActionButton btmateria;
     ArrayList<String> documentos;
-    String materia;
+    ArrayList<Integer> id_documentos;
+    int materia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +36,15 @@ public class ActivityDocument extends AppCompatActivity {
         setContentView(R.layout.activity_documento);
 
         Intent myIntent = getIntent(); // gets the previously created intent
-        materia = myIntent.getStringExtra("materia");
+        materia = myIntent.getIntExtra("materia",0);
 
         ListView moviesList=(ListView)findViewById(R.id.myList);
         documentos = new ArrayList<String>();
+        id_documentos = new ArrayList<Integer>();
         getDocumentos();
 
         // Create The Adapter with passing ArrayList as 3rd parameter
-        ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, documentos);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, documentos);
         // Set The Adapter
         moviesList.setAdapter(arrayAdapter);
 
@@ -52,8 +54,10 @@ public class ActivityDocument extends AppCompatActivity {
             // argument position gives the index of item which is clicked
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3) {
 
-                String selected= documentos.get(position);
-                Toast.makeText(getApplicationContext(), "DOcumento seleccionado : "+selected,   Toast.LENGTH_LONG).show();
+                int selected= id_documentos.get(position);
+                Intent intent= new Intent( ActivityDocument.this, ActivityVerContenido.class);
+                intent.putExtra("document",selected);
+                startActivity(intent);
             }
         });
 
@@ -71,13 +75,17 @@ public class ActivityDocument extends AppCompatActivity {
     }
     public void getDocumentos() {
         documentos.clear();
+        id_documentos.clear();
         final SQLiteDatabase db;
         final SQLite conn=new SQLite(this,"workshopp",null,1);
         db=conn.getWritableDatabase();
-        Cursor cursos=conn.getResultSet("select id,name from documentos;",db);
+        Cursor cursos=conn.getResultSet("select id,description from documents where course="+materia+";",db);
 
+        Log.i("DEB","select id,description from documents where course="+materia+";");
         for(cursos.moveToFirst(); !cursos.isAfterLast(); cursos.moveToNext()){
+            Log.i("DEB",cursos.getString(1));
             documentos.add(cursos.getString(1));
+            id_documentos.add(cursos.getInt(0));
         }
     }
 }

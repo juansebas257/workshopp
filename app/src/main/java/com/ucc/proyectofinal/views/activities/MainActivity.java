@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //INTENT PARA PRUEBAS, BORRAR ANTES DE PRODUCCION
-        //Intent ingresarPrueba = new Intent(MainActivity.this, ActivityMenu.class);
-        //startActivity(ingresarPrueba);
+        Intent ingresarPrueba = new Intent(MainActivity.this, ActivityMenu.class);
+        startActivity(ingresarPrueba);
 
         ETemail=(EditText)findViewById(R.id.Login);
         ETpassword=(EditText)findViewById(R.id.contrasena);

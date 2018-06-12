@@ -23,9 +23,9 @@ public class SQLite extends SQLiteOpenHelper{
         db.execSQL("drop table if exists courses");
         db.execSQL("drop table if exists documents");
 
-        db.execSQL("CREATE TABLE users (id integer,idserver integer,name text, email text,password text,sincronizado integer default 0)");
-        db.execSQL("CREATE TABLE courses (id integer,idserver integer, area integer,name text,sincronizado integer default 0)");
-        db.execSQL("CREATE TABLE documents (id integer,idserver integer, course integer,user integer,description text,calification text,type integer,file text,teacher text,sincronizado integer default 0)");
+        db.execSQL("CREATE TABLE users (id integer primary key autoincrement,idserver integer unique,name text, email text,password text,sincronizado integer default 0)");
+        db.execSQL("CREATE TABLE courses (id integer primary key autoincrement,idserver integer unique, area integer,name text,sincronizado integer default 0)");
+        db.execSQL("CREATE TABLE documents (id integer primary key autoincrement,idserver integer unique, course integer,user integer,description text,calification text,type integer,file text,teacher text,sincronizado integer default 0)");
     }
 
     @Override
